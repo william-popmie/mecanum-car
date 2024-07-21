@@ -45,6 +45,34 @@ void Backward(Car car, int speed) {
   MotorBackward(car.motor4, speed);
 }
 
+void Right(Car car, int speed) {
+  MotorBackward(car.motor1, speed);
+  MotorForward(car.motor2, speed);
+  MotorBackward(car.motor3, speed);
+  MotorForward(car.motor4, speed);
+}
+
+void Left(Car car, int speed) {
+  MotorForward(car.motor1, speed);
+  MotorBackward(car.motor2, speed);
+  MotorForward(car.motor3, speed);
+  MotorBackward(car.motor4, speed);
+}
+
+void StrafeRight(Car car, int speed) {
+  MotorForward(car.motor1, speed);
+  MotorForward(car.motor2, speed);
+  MotorBackward(car.motor3, speed);
+  MotorBackward(car.motor4, speed);
+}
+
+void StrafeLeft(Car car, int speed) {
+  MotorBackward(car.motor1, speed);
+  MotorBackward(car.motor2, speed);
+  MotorForward(car.motor3, speed);
+  MotorForward(car.motor4, speed);
+}
+
 void Stop(Car car) {
   MotorStop(car.motor1);
   MotorStop(car.motor2);

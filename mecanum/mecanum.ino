@@ -1,6 +1,3 @@
-#include <SPI.h>
-#include <esp_now.h>
-#include <WiFi.h>
 #include "Controller.h"
 #include "MotorFunctions.h"
 

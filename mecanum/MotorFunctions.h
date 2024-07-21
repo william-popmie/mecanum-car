@@ -7,20 +7,12 @@ typedef struct Motor{
   int pinE;
 } Motor;
 
-// extern Motor m1;
-// extern Motor m2;
-// extern Motor m3;
-// extern Motor m4;
-
-
 typedef struct Car{
   Motor motor1;
   Motor motor2;
   Motor motor3;
   Motor motor4;
 } Car;
-
-// extern Car car;
 
 void InitMotor(Motor motor);
 
