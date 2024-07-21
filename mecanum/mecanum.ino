@@ -11,10 +11,10 @@ struct Car{
   const Motor motor4;
 };
 
-Motor m1 = {2, 3, 5};
-Motor m2 = {4, 6, 7};
-Motor m3 = {8, 9, 10};
-Motor m4 = {11, 12, 13};
+Motor m1 = {23, 22, 21};
+Motor m2 = {19, 18, 5};
+Motor m3 = {17, 16, 4};
+Motor m4 = {0, 2, 15};
 
 Car car = {m1, m2, m3, m4};
 
