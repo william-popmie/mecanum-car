@@ -15,13 +15,14 @@ typedef struct Car{
 } Car;
 
 void InitMotor(Motor motor);
+void InitMotors();
 
 void MotorForward(Motor motor, int speed);
 void MotorBackward(Motor motor, int speed);
 void MotorStop(Motor motor);
 
-void Forward(Car car, int speed);
-void Backward(Car car, int speed);
-void Stop(Car car);
+void Forward(int speed);
+void Backward(int speed);
+void Stop();
 
 #endif
