@@ -1,10 +1,10 @@
 #include "MotorFunctions.h"
 #include <Arduino.h>
 
-Motor m1 = {0, 4, 16};
-Motor m2 = {17, 5, 18};
-Motor m3 = {3, 21, 19};
-Motor m4 = {1, 22, 23};
+Motor m1 = {1, 22, 23};
+Motor m2 = {3, 21, 19};
+Motor m3 = {17, 5, 18};
+Motor m4 = {16, 14, 0};
 
 Car car = {m1, m2, m3, m4};
 
