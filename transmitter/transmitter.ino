@@ -11,11 +11,6 @@
 #define SCL2 0
 #define SDA2 2
 
-#define PI 3.14159265
-
-// Mac Address of esp32/esp8266 where it sends data to
-// uint8_t broadcastAddress[] = {0x10, 0x91, 0xA8, 0x35, 0x20, 0xE4};
-
 // MECANUM
 uint8_t broadcastAddress[] = {0x08, 0xD1, 0xF9, 0xCB, 0xA6, 0xB0};
 
@@ -34,8 +29,7 @@ ClassicController controller;
 
 struct struct_message
 {
-  bool connected;
-  int dir;
+  String dir;
 };
 struct_message structController;
 
@@ -58,13 +52,9 @@ void loop()
   if (!controller.connect())
   {
     Serial.println("#1 NOT CONNECTED!");
-
-    structController.connected = false;
   }
   else
   {
-    structController.connected = true;
-
     controller.update();
 
     a = controller.buttonA();
@@ -129,41 +119,59 @@ void loop()
 
   angle = atan2(JYL, JXL) * 180 / PI;
 
-  if (pow(JXL, 2) + pow(JYL, 2) < pow(50, 2))
+  if (R > 50 and L > 50){
+    structController.dir = "S";
+  }
+  else if (R > 50){
+    structController.dir = "TR";
+  }
+  else if (L > 50){
+    structController.dir = "TL";
+  }
+  else if (ZL and ZR){
+    structController.dir = "S";
+  }
+  else if (ZL) {
+    structController.dir = "SL";
+  }
+  else if (ZR) {
+    structController.dir = "SR";
+  }
+  else if (pow(JXL, 2) + pow(JYL, 2) < pow(50, 2))
   {
-    structController.dir = 0;
+    structController.dir = "S";
   }
   else if (angle >= -30 and angle <= 30)
   {
-    structController.dir = 1;
+    structController.dir = "R";
   }
   else if (angle >= 30 and angle <= 60)
   {
-    structController.dir = 2;
+    structController.dir = "FR";
   }
   else if (angle >= 60 and angle <= 120)
   {
-    structController.dir = 3;
+    structController.dir = "F";
   }
   else if (angle >= 120 and angle <= 150)
   {
-    structController.dir = 4;
+    structController.dir = "FL";
   }
   else if (angle >= 150 or angle <= -150)
   {
-    structController.dir = 5;
+    structController.dir = "L";
   }
   else if (angle >= -150 and angle <= -120)
   {
-    structController.dir = 6;
+    structController.dir = "BL";
   }
   else if (angle >= -120 and angle <= -60)
   {
-    structController.dir = 7;
+    structController.dir = "B";
   }
   else if (angle >= -60 and angle <= -30)
   {
-    structController.dir = 8;
+    structController.dir = "BR";
   }
 
   // if (ZL == 1){
